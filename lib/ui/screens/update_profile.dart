@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taskmanager/ui/utils/screen_background.dart';
+import 'package:taskmanager/ui/widgets/photo_picker.dart';
 import 'package:taskmanager/ui/widgets/tmappbar.dart';
 
 class UpdateProfile extends StatefulWidget {
@@ -28,31 +29,8 @@ class _UpdateProfileState extends State<UpdateProfile> {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 SizedBox(height: 15),
-                Container(
-                  height: 50,
-                  width: double.infinity,
-                  color: Colors.white,
-                  child: Row(
-                    children: [
-                      Container(
-                        alignment: Alignment.center,
-                        height: 50,
-                        width: 80,
-                        decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                          ),
-                        ),
-                        child: Text(
-                          "Photos",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                //image picker
+                Photo_picker(onTap: () {  },),
                 SizedBox(height: 10),
                 TextFormField(decoration: InputDecoration(hintText: "Email")),
                 SizedBox(height: 10),
@@ -82,3 +60,4 @@ class _UpdateProfileState extends State<UpdateProfile> {
     );
   }
 }
+
