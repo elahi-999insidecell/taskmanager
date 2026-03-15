@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:taskmanager/ui/screens/cancelled.dart';
+import 'package:taskmanager/ui/screens/completed.dart';
 import 'package:taskmanager/ui/screens/newtask.dart';
 import 'package:taskmanager/ui/screens/progress.dart';
 
@@ -13,7 +15,11 @@ class Mainnavholder extends StatefulWidget {
 class _MainnavholderState extends State<Mainnavholder> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [NewTask(), Progress(), Progress(), Progress()];
+  final List<Widget> _screens = [
+  NewTask(), 
+  Progress(), 
+  CancelledScreen(), 
+  CompletedScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

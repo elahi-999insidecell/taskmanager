@@ -10,32 +10,39 @@ class Photo_picker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      width: double.infinity,
-      color: Colors.white,
-      child: Row(
-        children: [
-          Container(
-            alignment: Alignment.center,
-            height: 50,
-            width: 80,
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: 50,
+        width: double.infinity,
+        color: Colors.white,
+        child: Row(
+          children: [
+            Container(
+              alignment: Alignment.center,
+              height: 50,
+              width: 80,
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  bottomLeft: Radius.circular(10),
+                ),
+              ),
+              child: Text(
+                "Photo",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
-            child: Text(
-              selectedPhoto == null ? "No photo is selected" : selectedPhoto!.name,
-              style: TextStyle(
-                overflow: TextOverflow.ellipsis
-              ),
-              maxLines: 1,
-            ),
-          ),
-        ],
+            Text(selectedPhoto == null ? "Null" : selectedPhoto!.name,
+                style: TextStyle(
+                  overflow: TextOverflow.ellipsis
+                ),
+                maxLines: 1,)
+          ],
+        ),
       ),
     );
   }

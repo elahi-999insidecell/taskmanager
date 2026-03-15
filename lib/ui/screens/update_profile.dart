@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:taskmanager/ui/utils/screen_background.dart';
 import 'package:taskmanager/ui/widgets/photo_picker.dart';
 import 'package:taskmanager/ui/widgets/tmappbar.dart';
@@ -12,6 +13,22 @@ class UpdateProfile extends StatefulWidget {
 }
 
 class _UpdateProfileState extends State<UpdateProfile> {
+  final ImagePicker _imagePicker = ImagePicker();
+  
+  XFile? _selectedImage;
+
+  Future<void> pickImage() async {
+    final XFile? image = await _imagePicker.pickImage(
+      source: ImageSource.gallery,
+    );
+    if (image != null) {
+      _selectedImage = image;
+      setState(() {
+        
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,8 +46,10 @@ class _UpdateProfileState extends State<UpdateProfile> {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 SizedBox(height: 15),
+
                 //image picker
-                Photo_picker(onTap: () {  },),
+                Photo_picker(onTap: pickImage, selectedPhoto: _selectedImage,),
+
                 SizedBox(height: 10),
                 TextFormField(decoration: InputDecoration(hintText: "Email")),
                 SizedBox(height: 10),
@@ -60,4 +79,3 @@ class _UpdateProfileState extends State<UpdateProfile> {
     );
   }
 }
-

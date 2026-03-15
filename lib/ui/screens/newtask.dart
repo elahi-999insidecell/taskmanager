@@ -39,7 +39,7 @@ class _NewTaskState extends State<NewTask> {
           Expanded(
             child: ListView.separated(
               itemBuilder: (context, index) {
-                return TaskCard();
+                return TaskCard(status: 'New', cardColor: Colors.blue,);
               },
               separatorBuilder: (context, index) {
                 return SizedBox(height: 4);

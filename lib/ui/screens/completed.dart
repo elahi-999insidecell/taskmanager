@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:taskmanager/ui/widgets/taskcard.dart';
 import 'package:taskmanager/ui/widgets/tmappbar.dart';
 
-class Progress extends StatefulWidget {
-  const Progress({super.key});
+class CompletedScreen extends StatefulWidget {
+  const CompletedScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _ProgressState createState() => _ProgressState();
+  State<CompletedScreen> createState() => _CompletedScreenState();
 }
 
-class _ProgressState extends State<Progress> {
+class _CompletedScreenState extends State<CompletedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +18,7 @@ class _ProgressState extends State<Progress> {
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: ListView.separated(
           itemBuilder: (context, index) {
-            return TaskCard(status: 'Progress', cardColor: Colors.purple,);
+            return TaskCard(status: 'Completed', cardColor: Colors.green,);
           },
           separatorBuilder: (context, index){
             return SizedBox(height: 2);

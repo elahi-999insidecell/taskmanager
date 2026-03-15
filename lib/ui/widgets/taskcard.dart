@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TaskCard extends StatelessWidget {
-  const TaskCard({super.key});
+  const TaskCard({super.key, required this.status, required this.cardColor});
+
+  final String status;
+  final Color cardColor;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +15,12 @@ class TaskCard extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(0)),
         child: ListTile(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          title: Text("Lorem Ipsum is simply dummy"),
+          title: Text(
+            "This is task title",
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge!.copyWith(fontSize: 18),
+          ),
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -25,8 +33,8 @@ class TaskCard extends StatelessWidget {
               Row(
                 children: [
                   Chip(
-                    label: Text("New"),
-                    backgroundColor: Colors.blue,
+                    label: Text(status),
+                    backgroundColor: cardColor,
                     labelStyle: TextStyle(color: Colors.white),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
